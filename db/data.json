@@ -1,0 +1,19 @@
+{
+    "columns": [
+        {"id": 1, "name": "Planning", "limit": 20},
+        {"id": 2, "name": "To Do Today", "limit": 6},
+        {"id": 3, "name": "In Progress", "limit": 2},
+        {"id": 4, "name": "Review", "limit": 3},
+        {"id": 5, "name": "Done", "limit": 15}
+    ],
+    "tasks": [
+        {"id": 1, "name": "Buy Carrot seeds", "idColumn": 1, "user": "Sandra", "type": "vegetable"},
+        {"id": 2, "name": "Planting Tomatoes", "idColumn": 3, "user": "Daniel", "type": "vegetable"},
+        {"id": 3, "name": "Water seedings", "idColumn": 2, "user": "Sandra", "type": "flower"},
+        {"id": 4, "name": "Fortilise the beds number 2", "idColumn": 1, "user": "Sandra", "type": "vegetable"},
+        {"id": 5, "name": "Dig through the beds", "idColumn": 2, "user": "Daniel", "type": "vegetable"},
+        {"id": 6, "name": "Buy herbs seeds (Dill, Parsley, Mint)", "idColumn": 1, "user": "Sandra", "type": "herbs"},
+        {"id": 7, "name": "Make seedlings of salad", "idColumn": 1, "user": "Sandra", "type": "vegetable"},
+        {"id": 8, "name": "Plan vegetable beds", "idColumn": 5, "user": "Sandra", "type": "vegetable"}
+    ]
+}
