@@ -67,7 +67,7 @@ function Column({ removeTask }) {
                       name={task.name}
                       user={task.user}
                     />
-                    {column.id === 7 && (
+                    {column.id === 5 && (
                       <S.DeleteButton
                         onClick={() => removeTask(task.id)}
                         title="Remove task"

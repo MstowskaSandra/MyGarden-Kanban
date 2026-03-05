@@ -30,16 +30,16 @@ export const ColumnHeader = styled.div`
   background: white;
   border-radius: 16px;
   border-bottom: none;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   border: 1px solid gray;
-  
+
   h4 {
     margin: 0 0 0.5rem 0;
     font-size: 1.1rem;
     font-weight: 600;
     color: #495057;
   }
-  
+
   span {
     font-size: 0.9rem;
     color: #6c757d;
@@ -75,32 +75,54 @@ export const ColumnContainer = styled.div`
   position: relative;
   overflow-y: auto;
   padding-right: 0.5rem;
-  
+
   &::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: transparent;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: #adb5bd;
     border-radius: 3px;
   }
-  
-  &[data-active='true'] {
+
+  &[data-active="true"] {
     background: #e3f2fd;
     border-color: #2196f3;
   }
 `;
 
 export const TaskWrapper = styled.div`
-  flex: 1;
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding-right: 0.5rem;
+  position: relative;
+  align-items: center;
 `;
 
+export const DeleteButton = styled.button`
+  position: absolute;
+  top: 0.25rem;
+  right: 1.75rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: red;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+  opacity: 1;
+  background-color: rgba(255, 0, 0, 0.1);
 
+  &:hover {
+    background-color: red;
+    color: black;
+  }
+`;
