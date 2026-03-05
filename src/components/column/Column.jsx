@@ -31,6 +31,13 @@ function Column({ removeTask }) {
     setTasks(updatedTasks);
   };
 
+  const updateTask = (taskId, newName) => {
+    const updatedTasks = tasks.map((t) => 
+      t.id === taskId ? { ...t, name: newName } : t
+    );
+    setTasks(updatedTasks);
+  };
+
   const onDragOver = (e) => {
     e.preventDefault();
   };
@@ -62,10 +69,10 @@ function Column({ removeTask }) {
                 .map((task) => (
                   <S.TaskWrapper key={task.id}>
                     <Task
-                      key={task.id}
                       id={task.id}
                       name={task.name}
                       user={task.user}
+                      updateTask={updateTask}
                     />
                     {column.id === 5 && (
                       <S.DeleteButton
@@ -83,6 +90,6 @@ function Column({ removeTask }) {
       </S.BoardBody>
     </S.BoardContainer>
   );
-}
+};
 
 export default Column;
