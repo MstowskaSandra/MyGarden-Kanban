@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Task({ id, name, user, updateTask }) {
+function Task({ id, name, user, updateTask, labels }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(name);
 
@@ -41,8 +41,15 @@ function Task({ id, name, user, updateTask }) {
         </>
       ) : (
         <>
+          {labels &&
+            labels.map((labelName, index) => (
+              <span key={`${id}-${labelName}-${index}`} title={labelName}>
+                {labelName}
+              </span>
+            ))}
           <p>{name}</p>
           <span>{user}</span>
+
           <button onClick={handleEditClick} title="Edit">
             ✏️
           </button>

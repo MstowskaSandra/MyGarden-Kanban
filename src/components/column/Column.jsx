@@ -5,7 +5,7 @@ import TaskContext from "../../context/taskContext";
 import SetTaskContext from "../../context/setTaskContext";
 import Task from "../task/Task";
 
-function Column({ removeTask }) {
+function Column({ removeTask, labelsList }) {
   const columns = useContext(ColumnContext);
   const tasks = useContext(TaskContext);
   const setTasks = useContext(SetTaskContext);
@@ -31,9 +31,12 @@ function Column({ removeTask }) {
     setTasks(updatedTasks);
   };
 
-  const updateTask = (taskId, newName) => {
-    const updatedTasks = tasks.map((t) => 
-      t.id === taskId ? { ...t, name: newName } : t
+  const updateTask = (taskId, newName, newLabels) => {
+    const task = tasks.find((t) => t.id === taskId);
+    const updatedTasks = tasks.map((t) =>
+      t.id === taskId
+        ? { ...t, name: newName, labels: newLabels || task?.labels || [] }
+        : t,
     );
     setTasks(updatedTasks);
   };
@@ -73,6 +76,8 @@ function Column({ removeTask }) {
                       name={task.name}
                       user={task.user}
                       updateTask={updateTask}
+                      labels={task.labels || []}
+                      labelsList={labelsList}
                     />
                     {column.id === 5 && (
                       <S.DeleteButton

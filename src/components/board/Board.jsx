@@ -10,6 +10,7 @@ import useStorage from "../../hooks/useStorage";
 function Board() {
   const [tasks, setTasks] = useStorage("tasks", Data.tasks);
   const [columns, setColumns] = useStorage("columns", Data.columns);
+  const [labelsList, setLabelsList] = useStorage("labels", Data.labels);
 
   const addTask = (newTask) => {
     const startColumnId = 1;
@@ -39,8 +40,8 @@ function Board() {
       <TaskContext.Provider value={tasks}>
         <SetTaskContext.Provider value={setTasks}>
           <S.Container>
-            <Column removeTask={removeTask} />
-            <Form onAddTask={addTask} />
+            <Column removeTask={removeTask} labelsList={labelsList} />
+            <Form onAddTask={addTask} labelsList={labelsList} />
           </S.Container>
         </SetTaskContext.Provider>
       </TaskContext.Provider>
