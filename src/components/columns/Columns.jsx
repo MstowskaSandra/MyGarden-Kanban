@@ -1,10 +1,12 @@
 import * as S from "./Columns.styles";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import BoardContext from "../../context/boardContext";
 import Column from "../column/Column";
 
 function Columns() {
-  const { columns, tasks, setTasks, removeTask } = useContext(BoardContext);
+  const [activeLabels, setActiveLabels] = useState([]);
+  const { columns, tasks, setTasks, removeTask, labelsList } =
+    useContext(BoardContext);
 
   const onDrop = (e, column) => {
     e.preventDefault();
@@ -41,8 +43,38 @@ function Columns() {
     e.preventDefault();
   };
 
+  const filteredTasks =
+    activeLabels.length === 0
+      ? tasks
+      : tasks.filter((task) =>
+          task.labels?.some((label) => activeLabels.includes(label)),
+        );
+
   return (
     <S.BoardContainer>
+      <S.LabelFilters>
+        {labelsList.map((label) => (
+          <S.LabelChip
+            key={label.id}
+            color={label.color}
+            active={activeLabels.includes(label.name)}
+            onClick={() => {
+              setActiveLabels((prev) =>
+                prev.includes(label.name)
+                  ? prev.filter((l) => l !== label.name)
+                  : [...prev, label.name],
+              );
+            }}
+          >
+            {label.name.slice(0, 3)} {/* seeds→see, planting→pla, March→Mar */}
+          </S.LabelChip>
+        ))}
+        {activeLabels.length > 0 && (
+          <S.ClearButton onClick={() => setActiveLabels([])}>
+            Clear ({activeLabels.length})
+          </S.ClearButton>
+        )}
+      </S.LabelFilters>
       <S.BoardHeader>
         <S.HeaderRow>
           {columns.map((column) => (
@@ -57,10 +89,12 @@ function Columns() {
       <S.BoardBody>
         <S.ColumnsRow>
           {columns.map((column) => (
-            <Column 
+            <Column
               key={column.id}
               column={column}
-              tasksInColumn={tasks.filter((task) => task.idColumn === column.id)}
+              tasksInColumn={filteredTasks.filter(
+                (task) => task.idColumn === column.id,
+              )}
               onDrop={onDrop}
               onDragOver={onDragOver}
               updateTask={updateTask}

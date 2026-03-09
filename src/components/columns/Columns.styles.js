@@ -61,68 +61,37 @@ export const ColumnsRow = styled.div`
   height: 100%;
 `;
 
-export const ColumnContainer = styled.div`
-  flex: 1;
-  width: 220px;
-  min-height: 400px;
-  max-height: 500px;
-  background: #f8f9fa;
-  border-radius: 8px;
-  border: 1px solid #dee2e6;
+export const LabelFilters = styled.div`
   display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  position: relative;
-  overflow-y: auto;
-  padding-right: 0.5rem;
-
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #adb5bd;
-    border-radius: 3px;
-  }
-
-  &[data-active="true"] {
-    background: #e3f2fd;
-    border-color: #2196f3;
-  }
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px;
+  max-height: 40px;
+  overflow-x: auto;
+  background: #f5f5f5;
+  border-bottom: 1px solid #eee;
 `;
 
-export const TaskWrapper = styled.div`
-  display: flex;
-  position: relative;
-  align-items: center;
-`;
-
-export const DeleteButton = styled.button`
-  position: absolute;
-  top: 0.25rem;
-  right: 1.75rem;
-  width: 1.25rem;
-  height: 1.25rem;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  color: red;
-  font-weight: bold;
-  font-size: 1rem;
-  line-height: 1;
+export const LabelChip = styled.button`
+  padding: 4px 8px;
+  border: 1px solid ${(p) => p.color};
+  background: ${(p) => (p.active ? p.color : "transparent")};
+  color: ${(p) => (p.active ? "white" : p.color)};
+  border-radius: 12px;
+  font-size: 11px;
+  white-space: nowrap;
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 50%;
-  opacity: 1;
-  background-color: rgba(255, 0, 0, 0.1);
-
   &:hover {
-    background-color: red;
-    color: black;
+    opacity: 0.8;
   }
+`;
+
+export const ClearButton = styled.button`
+  padding: 4px 8px;
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 11px;
+  cursor: pointer;
 `;

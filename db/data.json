@@ -21,7 +21,7 @@
       "idColumn": 3,
       "user": "Daniel",
       "type": "vegetable",
-      "labels": ["planting", "seedlings"]
+      "labels": ["planting", "seedlings", "May"]
     },
     {
       "id": 3,
@@ -37,7 +37,7 @@
       "idColumn": 1,
       "user": "Sandra",
       "type": "vegetable",
-      "labels": ["fertilization"]
+      "labels": ["fertilization", "April"]
     },
     {
       "id": 5,
@@ -45,7 +45,7 @@
       "idColumn": 2,
       "user": "Daniel",
       "type": "vegetable",
-      "labels": ["digging"]
+      "labels": ["digging", "May"]
     },
     {
       "id": 6,
@@ -53,7 +53,7 @@
       "idColumn": 1,
       "user": "Sandra",
       "type": "herbs",
-      "labels": ["shopping", "seeds"]
+      "labels": ["shopping", "seeds", "March"]
     },
     {
       "id": 7,
@@ -61,7 +61,7 @@
       "idColumn": 1,
       "user": "Sandra",
       "type": "vegetable",
-      "labels": ["seedlings", "planting", "seedling transplant"]
+      "labels": ["seedlings", "planting", "seedling transplant", "March"]
     },
     {
       "id": 8,
@@ -76,7 +76,7 @@
       "idColumn": 1,
       "user": "Sandra",
       "type": "flower",
-      "labels": ["trimming", "repotting"]
+      "labels": ["trimming", "repotting", "June"]
     }
   ],
   "labels": [
@@ -90,6 +90,14 @@
     { "id": 8, "name": "trimming", "color": "#795548" },
     { "id": 9, "name": "harvest", "color": "#8bc34a" },
     { "id": 10, "name": "repotting", "color": "#607d8b" },
-    { "id": 11, "name": "digging", "color": "#f44336" }
+    { "id": 11, "name": "digging", "color": "#f44336" },
+    { "id": 12, "name": "March", "color": "#90ee90" },
+    { "id": 13, "name": "April", "color": "#98fb98" },
+    { "id": 14, "name": "May", "color": "#adff2f" },
+    { "id": 15, "name": "June", "color": "#32cd32" },
+    { "id": 16, "name": "July", "color": "#228b22" },
+    { "id": 17, "name": "August", "color": "#006400" },
+    { "id": 18, "name": "September", "color": "#daa520" },
+    { "id": 19, "name": "October", "color": "#cd853f" }
   ]
 }
