@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import * as S from "./Task.styles";
 import BoardContext from "../../context/boardContext";
+import TaskEdit from "../taskEdit/TaskEdit";
 
 function Task({ id, name, user, updateTask, labels }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -28,42 +29,15 @@ function Task({ id, name, user, updateTask, labels }) {
   return (
     <S.TaskContainer draggable="true" onDragStart={onDragStart}>
       {isEditing ? (
-        <>
-          <S.EditInput
-            value={editName}
-            onChange={(e) => setEditName(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") handleSave();
-              if (e.key === "Escape") {
-                setEditName(name);
-                setIsEditing(false);
-              }
-            }}
-            autoFocus
-          />
-
-          <S.LabelsEdit>
-            {labelsList.map((label) => (
-              <S.CheckboxLabel key={label.id}>
-                <input
-                  type="checkbox"
-                  checked={editLabels.includes(label.name)}
-                  onChange={(e) => {
-                    const labelName = label.name;
-
-                    setEditLabels((prev) =>
-                      e.target.checked
-                        ? [...prev, labelName]
-                        : prev.filter((l) => l !== labelName),
-                    );
-                  }}
-                />
-                {label.name}
-              </S.CheckboxLabel>
-            ))}
-          </S.LabelsEdit>
-          <S.EditButton onClick={handleSave}>ok</S.EditButton>
-        </>
+        <TaskEdit
+          editName={editName}
+          editLabels={editLabels}
+          labelsList={labelsList}
+          onChangeName={setEditName}
+          onChangeLabels={setEditLabels}
+          onSave={handleSave}
+          onCancel={() => setIsEditing(false)}
+        />
       ) : (
         <S.TaskContent>
           {labels &&
