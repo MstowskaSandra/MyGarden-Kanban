@@ -1,7 +1,7 @@
 import * as S from "./Board.styles";
 import BoardContext from "../../context/boardContext";
 import Data from "../../../db/data.json";
-import Column from "../column/Column";
+import Columns from "../columns/Columns";
 import Form from "../form/Form";
 import useStorage from "../../hooks/useStorage";
 import { useState } from "react";
@@ -48,7 +48,7 @@ function Board() {
     >
       <S.Container>
         <button onClick={() => setIsModalOpen(true)}>+ Add new Task</button>
-        <Column />
+        <Columns />
 
         {isModalOpen ? (
           <TaskModal onClose={() => setIsModalOpen(false)}>
