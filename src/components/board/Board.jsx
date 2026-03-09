@@ -1,11 +1,11 @@
 import * as S from "./Board.styles";
 import toast from "react-hot-toast";
+import { useState } from "react";
 import BoardContext from "../../context/boardContext";
 import Data from "../../../db/data.json";
 import Columns from "../columns/Columns";
 import Form from "../form/Form";
 import useStorage from "../../hooks/useStorage";
-import { useState } from "react";
 import TaskModal from "../modal/TaskModal";
 
 function Board() {
