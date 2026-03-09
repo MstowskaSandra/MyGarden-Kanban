@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import * as S from "./Task.styles";
 import BoardContext from "../../context/boardContext";
 import TaskEdit from "../taskEdit/TaskEdit";
+import TaskLabels from "../taskLabels/TaskLabels";
 
 function Task({ id, name, user, updateTask, labels }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -40,20 +41,7 @@ function Task({ id, name, user, updateTask, labels }) {
         />
       ) : (
         <S.TaskContent>
-          {labels &&
-            labels.map((labelName, index) => {
-              const labelObj = labelsList.find((l) => l.name === labelName);
-
-              return (
-                <S.LabelChip
-                  key={`${id}-${labelName}-${index}`}
-                  title={labelName}
-                  color={labelObj?.color}
-                >
-                  {labelName}
-                </S.LabelChip>
-              );
-            })}
+          <TaskLabels labels={labels} labelsList={labelsList} />
           <S.TaskName>{name}</S.TaskName>
           <S.TaskUser>{user}</S.TaskUser>
 
