@@ -3,17 +3,33 @@ import BoardContext from "../../context/boardContext";
 import * as S from "./Form.styles";
 
 function Form() {
+  const [errors, setErrors] = useState({ taskName: "", userName: "" });
   const [taskName, setTaskName] = useState("");
   const [userName, setUserName] = useState("");
   const [selectedLabels, setSelectedLabels] = useState([]);
   const { addTask, labelsList } = useContext(BoardContext);
 
+  const validate = () => {
+    const newErrors = {};
+
+    if (taskName.trim().length < 5) {
+      newErrors.taskName = "Task must be at least 5 characters";
+    }
+
+    if (userName.trim().length < 3) {
+      newErrors.userName = "Username must be at least 3 characters";
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (taskName.length < 5 || userName.length < 3) {
-      alert("Wypełnij formularz.");
-      return;
-    }
+
+    if (!validate()) return;
+
     addTask({
       name: taskName,
       user: userName,
@@ -23,6 +39,7 @@ function Form() {
     setTaskName("");
     setUserName("");
     setSelectedLabels([]);
+    setErrors({});
   };
 
   return (
@@ -33,8 +50,12 @@ function Form() {
         name="task"
         placeholder="New task"
         value={taskName}
-        onChange={(e) => setTaskName(e.target.value)}
+        onChange={(e) => {
+          setTaskName(e.target.value);
+          setErrors((prev) => ({ ...prev, taskName: "" }));
+        }}
       ></S.TextArea>
+      {errors.taskName && <S.ErrorMessage>{errors.taskName}</S.ErrorMessage>}
 
       <S.LabelsSection>
         <S.FormLabel>Labels:</S.FormLabel>
@@ -64,8 +85,14 @@ function Form() {
         name="user"
         placeholder="Your username"
         value={userName}
-        onChange={(e) => setUserName(e.target.value)}
+        onChange={(e) => {
+          setUserName(e.target.value);
+          setErrors((prev) => ({ ...prev, userName: "" }));
+        }}
       ></S.InputField>
+
+      {errors.userName && <S.ErrorMessage>{errors.userName}</S.ErrorMessage>}
+
       <S.SubmitButton
         className="input-button"
         type="submit"

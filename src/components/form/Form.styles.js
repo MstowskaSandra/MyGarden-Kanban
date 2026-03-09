@@ -112,3 +112,9 @@ export const CheckboxInput = styled.input`
   width: auto;
   margin: 0;
 `;
+
+export const ErrorMessage = styled.p`
+  color: #e53935;
+  font-size: 0.8rem;
+  margin-top: 4px;
+`;
