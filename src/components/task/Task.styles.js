@@ -89,3 +89,18 @@ export const LabelChip = styled.span`
 
   color: #333;
 `;
+
+export const LabelsEdit = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0;
+`;
+
+export const CheckboxLabel = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  cursor: pointer;
+`;

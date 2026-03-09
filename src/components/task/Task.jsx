@@ -5,6 +5,7 @@ import BoardContext from "../../context/boardContext";
 function Task({ id, name, user, updateTask, labels }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(name);
+  const [editLabels, setEditLabels] = useState(labels || []);
   const { labelsList } = useContext(BoardContext);
 
   const onDragStart = (e) => {
@@ -14,11 +15,12 @@ function Task({ id, name, user, updateTask, labels }) {
   const handleEditClick = () => {
     setIsEditing(true);
     setEditName(name);
+    setEditLabels(labels || []);
   };
 
   const handleSave = () => {
-    if (editName.trim() && editName !== name) {
-      updateTask(id, editName.trim());
+    if (editName.trim()) {
+      updateTask(id, editName.trim(), editLabels);
     }
     setIsEditing(false);
   };
@@ -30,7 +32,6 @@ function Task({ id, name, user, updateTask, labels }) {
           <S.EditInput
             value={editName}
             onChange={(e) => setEditName(e.target.value)}
-            onBlur={handleSave}
             onKeyDown={(e) => {
               if (e.key === "Enter") handleSave();
               if (e.key === "Escape") {
@@ -40,6 +41,27 @@ function Task({ id, name, user, updateTask, labels }) {
             }}
             autoFocus
           />
+
+          <S.LabelsEdit>
+            {labelsList.map((label) => (
+              <S.CheckboxLabel key={label.id}>
+                <input
+                  type="checkbox"
+                  checked={editLabels.includes(label.name)}
+                  onChange={(e) => {
+                    const labelName = label.name;
+
+                    setEditLabels((prev) =>
+                      e.target.checked
+                        ? [...prev, labelName]
+                        : prev.filter((l) => l !== labelName),
+                    );
+                  }}
+                />
+                {label.name}
+              </S.CheckboxLabel>
+            ))}
+          </S.LabelsEdit>
           <S.EditButton onClick={handleSave}>ok</S.EditButton>
         </>
       ) : (
