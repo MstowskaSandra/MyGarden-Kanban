@@ -6,7 +6,7 @@ import Data from "../../../db/data.json";
 import Columns from "../columns/Columns";
 import Form from "../form/Form";
 import useStorage from "../../hooks/useStorage";
-import TaskModal from "../modal/TaskModal";
+import TaskModal from "../taskModal/TaskModal";
 
 function Board() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,6 +31,7 @@ function Board() {
 
     const id = tasks.length ? Math.max(...tasks.map((t) => t.id)) + 1 : 1;
     setTasks((prev) => [...prev, { id, ...newTask, idColumn: startColumn.id }]);
+    setIsModalOpen(false);
   };
 
   const removeTask = (taskId) => {
