@@ -1,10 +1,9 @@
-import "./App.css";
 import Board from "./components/board/Board";
 import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <div className="wrapper">
+    <div>
       <Board />
       <Toaster
         position="top-right"

@@ -31,7 +31,7 @@ const Column = ({ column, onDragOver, onDrop, tasksInColumn }) => {
                 onClick={() => handleDeleteClick(task.id)}
                 title="Remove task"
               >
-                x
+                🗑️
               </S.DeleteButton>
             )}
           </S.TaskWrapper>

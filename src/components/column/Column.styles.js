@@ -1,19 +1,43 @@
 import styled from "styled-components";
 
 export const ColumnContainer = styled.div`
-  flex: 1;
-  width: 220px;
+  flex: 0 0 280px;
   min-height: 400px;
-  max-height: 500px;
-  background: #f8f9fa;
-  border-radius: 8px;
-  border: 1px solid #dee2e6;
+  max-height: 70vh;
+
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  gap: ${({ theme }) => theme.spacing.sm};
+
+  padding: ${({ theme }) => theme.spacing.md};
+
+  background: linear-gradient(
+    180deg,
+    ${({ theme }) => theme.colors.surface} 0%,
+    ${({ theme }) => theme.colors.surfaceAlt} 100%
+  );
+
+  border-radius: ${({ theme }) => theme.radius.lg};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+
+  box-shadow: ${({ theme }) => theme.shadow.sm};
+
   position: relative;
+
   overflow-y: auto;
-  padding-right: 0.5rem;
+  overflow-x: hidden;
+
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: ${({ theme }) => theme.shadow.md};
+  }
+
+  &[data-active="true"] {
+    background: ${({ theme }) => theme.colors.surfaceAlt};
+    border-color: ${({ theme }) => theme.colors.secondary};
+    box-shadow: ${({ theme }) => theme.shadow.md};
+  }
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -24,44 +48,45 @@ export const ColumnContainer = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #adb5bd;
-    border-radius: 3px;
+    background: ${({ theme }) => theme.colors.borderStrong};
+    border-radius: 6px;
   }
 
-  &[data-active="true"] {
-    background: #e3f2fd;
-    border-color: #2196f3;
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => theme.colors.secondary};
   }
 `;
 
 export const TaskWrapper = styled.div`
   display: flex;
-  position: relative;
   align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.15s ease;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.1);
+  }
 `;
 
 export const DeleteButton = styled.button`
-  position: absolute;
-  top: 0.25rem;
-  right: 1.75rem;
-  width: 1.25rem;
-  height: 1.25rem;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.25rem;
+  background: none;
+  font-size: 1.25rem;
   font-weight: bold;
-  font-size: 1rem;
-  line-height: 1;
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 50%;
-  opacity: 1;
-  background-color: rgba(255, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  ${TaskWrapper}:hover & {
+    opacity: 1;
+  }
 
   &:hover {
-    background-color: red;
-    color: black;
+    transform: scale(1.1);
   }
 `;

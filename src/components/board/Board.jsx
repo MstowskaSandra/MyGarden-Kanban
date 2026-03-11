@@ -58,10 +58,10 @@ function Board() {
         addTask,
         removeTask,
         updateTask,
+        setIsModalOpen,
       }}
     >
       <S.Container>
-        <button onClick={() => setIsModalOpen(true)}>+ Add new Task</button>
         <Columns />
 
         {isModalOpen ? (
@@ -75,3 +75,5 @@ function Board() {
 }
 
 export default Board;
+
+

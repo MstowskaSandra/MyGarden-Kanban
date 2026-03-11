@@ -7,7 +7,8 @@ import LabelFilters from "../labelFilters/LabelFilters";
 
 function Columns() {
   const [activeLabels, setActiveLabels] = useState([]);
-  const { columns, tasks, setTasks, labelsList } = useContext(BoardContext);
+  const { columns, tasks, setTasks, labelsList, setIsModalOpen } =
+    useContext(BoardContext);
 
   const onDrop = (e, column) => {
     e.preventDefault();
@@ -41,37 +42,40 @@ function Columns() {
 
   return (
     <S.BoardContainer>
-      <LabelFilters
-        labelsList={labelsList}
-        activeLabels={activeLabels}
-        setActiveLabels={setActiveLabels}
-      />
-      <S.BoardHeader>
-        <S.HeaderRow>
-          {columns.map((column) => (
-            <S.ColumnHeader key={column.id}>
-              <h4>{column.name}</h4>
-              <span>(Limit: {column.limit})</span>
-            </S.ColumnHeader>
-          ))}
-        </S.HeaderRow>
-      </S.BoardHeader>
+      <S.Toolbar>
+        <button onClick={() => setIsModalOpen(true)}>+ Add new Task</button>
+        <LabelFilters
+          labelsList={labelsList}
+          activeLabels={activeLabels}
+          setActiveLabels={setActiveLabels}
+        />
+      </S.Toolbar>
+      <S.ScrollArea>
+        <S.BoardInner>
+          <S.HeaderRow>
+            {columns.map((column) => (
+              <S.ColumnHeader key={column.id}>
+                <h4>{column.name}</h4>
+                <span>(Limit: {column.limit})</span>
+              </S.ColumnHeader>
+            ))}
+          </S.HeaderRow>
 
-      <S.BoardBody>
-        <S.ColumnsRow>
-          {columns.map((column) => (
-            <Column
-              key={column.id}
-              column={column}
-              tasksInColumn={filteredTasks.filter(
-                (task) => task.idColumn === column.id,
-              )}
-              onDrop={onDrop}
-              onDragOver={onDragOver}
-            />
-          ))}
-        </S.ColumnsRow>
-      </S.BoardBody>
+          <S.ColumnsRow>
+            {columns.map((column) => (
+              <Column
+                key={column.id}
+                column={column}
+                tasksInColumn={filteredTasks.filter(
+                  (task) => task.idColumn === column.id,
+                )}
+                onDrop={onDrop}
+                onDragOver={onDragOver}
+              />
+            ))}
+          </S.ColumnsRow>
+        </S.BoardInner>
+      </S.ScrollArea>
     </S.BoardContainer>
   );
 };

@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-
 export const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
+  width: 100%;
+  height: 100vh;
+  padding: ${({ theme }) => theme.spacing.sm};
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.md};
+  background: ${({ theme }) => theme.colors.background};
 `;
