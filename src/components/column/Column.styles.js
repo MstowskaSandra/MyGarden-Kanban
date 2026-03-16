@@ -14,7 +14,7 @@ export const ColumnContainer = styled.div`
   background: linear-gradient(180deg, #f9fbf5 0%, #e8f0d8 100%);
 
   border-radius: 12px;
-  border: 1px solid #d2e0b8;
+  border: 2px solid #d2e0b8;
 
   box-shadow: 2px 2px 4px #283b0a;
 
@@ -26,9 +26,8 @@ export const ColumnContainer = styled.div`
   transition: all 0.2s ease;
 
   &:hover {
-    box-shadow: 4px 4px 8px #283b0a;
+    box-shadow: 6px 6px 8px #283b0a;
     border-color: #283b0a;
-    transform: scale(1.03);
   }
 
   &[data-active="true"] {

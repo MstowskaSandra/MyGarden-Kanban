@@ -68,11 +68,16 @@ export const ColumnHeader = styled.div`
   flex: 0 0 280px;
   padding: 0.5rem;
   background: #f1f6e8;
-  color: #283b0a;
   border-radius: 8px;
   box-shadow: 2px 2px 4px #283b0a;
-  text-align: center;
+`;
 
+export const TxtWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  text-align: center;
+  color: #283b0a;
   h4 {
     margin: 0;
     font-size: 1.1rem;
@@ -83,4 +88,11 @@ export const ColumnHeader = styled.div`
   span {
     font-size: 0.85rem;
   }
+`;
+
+export const HeaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 `;

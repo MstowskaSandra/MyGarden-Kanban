@@ -1,10 +1,15 @@
 {
   "columns": [
-    { "id": 1, "name": "Planning", "limit": 20 },
-    { "id": 2, "name": "To Do Today", "limit": 6 },
-    { "id": 3, "name": "In Progress", "limit": 2 },
-    { "id": 4, "name": "Review", "limit": 3 },
-    { "id": 5, "name": "Done", "limit": 15 }
+    { "id": 1, "name": "Planning", "limit": 20, "icon": "/icons/book.png" },
+    {
+      "id": 2,
+      "name": "To Do Today",
+      "limit": 6,
+      "icon": "/icons/sapling.png"
+    },
+    { "id": 3, "name": "In Progress", "limit": 2, "icon": "/icons/plant.png" },
+    { "id": 4, "name": "Review", "limit": 3, "icon": "/icons/time.png" },
+    { "id": 5, "name": "Done", "limit": 15, "icon": "/icons/vegetable.png" }
   ],
   "tasks": [
     {

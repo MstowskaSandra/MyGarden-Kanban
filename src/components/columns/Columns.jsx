@@ -56,8 +56,17 @@ function Columns() {
           <S.HeaderRow>
             {columns.map((column) => (
               <S.ColumnHeader key={column.id}>
-                <h4>{column.name}</h4>
-                <span>(Limit: {column.limit})</span>
+                <S.HeaderWrapper>
+                  <S.TxtWrapper>
+                    <h4>{column.name}</h4>
+                    <span>(Limit: {column.limit})</span>
+                  </S.TxtWrapper>
+                  <img
+                    src={column.icon}
+                    alt={column.name}
+                    style={{ width: "2.5rem", height: "2.5rem" }}
+                  />
+                </S.HeaderWrapper>
               </S.ColumnHeader>
             ))}
           </S.HeaderRow>
