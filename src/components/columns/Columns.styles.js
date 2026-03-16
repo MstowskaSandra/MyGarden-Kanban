@@ -6,9 +6,9 @@ export const BoardContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  border: 3px solid ${({ theme }) => theme.colors.borderStrong};
-  border-radius: ${({ theme }) => theme.radius.lg};
-  background: ${({ theme }) => theme.colors.surface};
+  border: 3px solid #5e891b;
+  border-radius: 12px;
+  background: #c0ff72;
 
   overflow: hidden;
 `;
@@ -17,11 +17,11 @@ export const Toolbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${({ theme }) => theme.spacing.md};
-  background: ${({ theme }) => theme.colors.surfaceAlt};
-  border-bottom: 3px solid ${({ theme }) => theme.colors.borderStrong};
+  padding: 1rem;
+  background: #e8f0d8;
+  border-bottom: 3px solid #5e891b;
   flex-wrap: wrap;
-  gap: ${({ theme }) => theme.spacing.sm};
+  gap: 0.5rem;
 `;
 
 export const ScrollArea = styled.div`
@@ -30,14 +30,14 @@ export const ScrollArea = styled.div`
   overflow-y: hidden;
 
   scrollbar-width: thin;
-  scrollbar-color: ${({ theme }) => theme.colors.borderStrong} transparent;
+  scrollbar-color: #5e891b transparent;
 
   &::-webkit-scrollbar {
     height: 8px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.borderStrong};
+    background: #5e891b;
     border-radius: 4px;
   }
 `;
@@ -45,33 +45,32 @@ export const ScrollArea = styled.div`
 export const BoardInner = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: max-content;
   min-width: 100%;
 `;
 
 export const HeaderRow = styled.div`
   display: flex;
-  gap: ${({ theme }) => theme.spacing.md};
-  padding: ${({ theme }) => theme.spacing.md};
-  background: ${({ theme }) => theme.colors.surface};
-  border-bottom: 3px solid ${({ theme }) => theme.colors.borderStrong};
+  gap: 1rem;
+  padding-top: 1rem;
 `;
 
 export const ColumnsRow = styled.div`
   flex: 1;
   display: flex;
-  gap: ${({ theme }) => theme.spacing.md};
-  padding: ${({ theme }) => theme.spacing.lg};
-  background: ${({ theme }) => theme.colors.background};
+  gap: 1rem;
+  padding: 0.75rem;
 `;
 
 export const ColumnHeader = styled.div`
   flex: 0 0 280px;
-  padding: ${({ theme }) => theme.spacing.sm};
-  background: ${({ theme }) => theme.colors.secondary};
-  color: ${({ theme }) => theme.colors.darkGreen};
-  border-radius: ${({ theme }) => theme.radius.md};
-  box-shadow: ${({ theme }) => theme.shadow.lg};
+  padding: 0.5rem;
+  background: #f1f6e8;
+  color: #283b0a;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px #283b0a;
   text-align: center;
 
   h4 {

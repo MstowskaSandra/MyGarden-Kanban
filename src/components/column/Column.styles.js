@@ -7,20 +7,16 @@ export const ColumnContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.sm};
+  gap: 0.25rem;
 
-  padding: ${({ theme }) => theme.spacing.md};
+  padding: 0.5rem;
 
-  background: linear-gradient(
-    180deg,
-    ${({ theme }) => theme.colors.surface} 0%,
-    ${({ theme }) => theme.colors.surfaceAlt} 100%
-  );
+  background: linear-gradient(180deg, #f9fbf5 0%, #e8f0d8 100%);
 
-  border-radius: ${({ theme }) => theme.radius.lg};
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: 12px;
+  border: 1px solid #d2e0b8;
 
-  box-shadow: ${({ theme }) => theme.shadow.sm};
+  box-shadow: 2px 2px 4px #283b0a;
 
   position: relative;
 
@@ -30,13 +26,15 @@ export const ColumnContainer = styled.div`
   transition: all 0.2s ease;
 
   &:hover {
-    box-shadow: ${({ theme }) => theme.shadow.md};
+    box-shadow: 4px 4px 8px #283b0a;
+    border-color: #283b0a;
+    transform: scale(1.03);
   }
 
   &[data-active="true"] {
-    background: ${({ theme }) => theme.colors.surfaceAlt};
-    border-color: ${({ theme }) => theme.colors.secondary};
-    box-shadow: ${({ theme }) => theme.shadow.md};
+    background: #e8f0d8;
+    border-color: rgb(184, 208, 98);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   }
 
   &::-webkit-scrollbar {
@@ -48,12 +46,12 @@ export const ColumnContainer = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.borderStrong};
+    background: #5e891b;
     border-radius: 6px;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background: ${({ theme }) => theme.colors.secondary};
+    background: gb(184, 208, 98);
   }
 `;
 

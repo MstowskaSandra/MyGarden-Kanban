@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root {
-    font-family: ${({ theme }) => theme.fonts.body};
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.5;
     font-weight: 400;
     text-rendering: optimizeLegibility;
@@ -24,8 +24,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.textPrimary};
+    background-color: #F4F8EF;
+    color: #283B0A;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -33,42 +33,42 @@ export const GlobalStyle = createGlobalStyle`
 
   a {
     font-weight: 500;
-    color: ${({ theme }) => theme.colors.primary};
+    color: #5F5AA5;
     text-decoration: none;
   }
 
   a:hover {
-    color: ${({ theme }) => theme.colors.primaryDark};
+    color: #4A4678;
   }
 
   button {
-    border-radius: ${({ theme }) => theme.radius.md};
+    border-radius: 8px;
     border: 3px solid transparent;
     padding: 0.6em 1.2em;
     font-size: 1rem;
     font-weight: 500;
     font-family: inherit;
-    background-color: ${({ theme }) => theme.colors.primaryLight};
-    color: ${({ theme }) => theme.colors.textPrimary};
+    background-color: #BAACEB;
+    color: #283B0A;
     cursor: pointer;
     transition: border-color 0.2s, background-color 0.2s, transform 0.1s;
   }
 
   button:hover {
-    border-color: ${({ theme }) => theme.colors.primaryDark};
+    border-color: #4A4678;
     transform: translateY(-2px);
   }
 
   button:focus,
   button:focus-visible {
-    outline: 3px solid ${({ theme }) => theme.colors.secondary};
+    outline: 3px solid rgb(184, 208, 98);
     outline-offset: 2px;
   }
 
   h1, h2, h3, h4 {
     margin: 0;
     font-weight: 600;
-    color: ${({ theme }) => theme.colors.textPrimary};
+    color: #283B0A;
   }
 
   span {
