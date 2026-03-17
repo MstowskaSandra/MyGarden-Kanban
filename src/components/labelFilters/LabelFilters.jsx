@@ -19,7 +19,8 @@ const LabelFilters = ({ activeLabels, setActiveLabels, isOpen, setIsOpen }) => {
       <S.BtnsWrapper>
         {activeLabels.length > 0 && (
           <S.Button onClick={() => setActiveLabels([])}>
-            <img src="/icons/broom.png" alt="Clear" />({activeLabels.length})
+            <img src="/icons/broom.png" alt="Clear" />
+            <span>({activeLabels.length})</span>
           </S.Button>
         )}
         <S.Button onClick={toggleFilters}>

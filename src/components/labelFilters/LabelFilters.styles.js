@@ -41,8 +41,11 @@ export const BtnsWrapper = styled.div`
 `;
 
 export const Button = styled.button`
-  border-radius: 16px;
-  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  width: 4rem;
   height: 3rem;
   box-shadow: 2px 2px 4px #283b0a;
   background: #baaceb;
@@ -50,11 +53,10 @@ export const Button = styled.button`
   border: none;
   font-size: 1rem;
   font-weight: 600;
-  text-align: center;
   cursor: pointer;
 
   img {
-    width: 1.5rem;
+    width: 1.8rem;
   }
 
   &:hover {
