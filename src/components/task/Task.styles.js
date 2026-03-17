@@ -67,3 +67,22 @@ export const DeleteButton = styled.button`
 `;
 
 
+export const Arrows = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+
+  button {
+    border: none;
+    background: #f3f3f3;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+`;
+

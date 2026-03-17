@@ -5,13 +5,32 @@ import BoardContext from "../../context/boardContext";
 import TaskEdit from "../taskEdit/TaskEdit";
 import TaskLabels from "../taskLabels/TaskLabels";
 import DeleteModal from "../deleteModal/DeleteModal";
+import useIsMobile from "../../hooks/useIsMobile";
 
 function Task({ id, name, user, labels, columnId }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(name);
   const [editLabels, setEditLabels] = useState(labels || []);
   const [deleteTaskId, setDeleteTaskId] = useState(null);
-  const { labelsList, updateTask, removeTask } = useContext(BoardContext);
+  const { labelsList, updateTask, removeTask, moveTask, columns } =
+    useContext(BoardContext);
+
+  const isMobile = useIsMobile();
+  const columnIndex = columns.findIndex((c) => c.id === columnId);
+
+  const moveLeft = () => {
+    if (columnIndex === 0) return;
+
+    const prevColumn = columns[columnIndex - 1];
+    moveTask(id, prevColumn.id);
+  };
+
+  const moveRight = () => {
+    if (columnIndex === columns.length - 1) return;
+
+    const nextColumn = columns[columnIndex + 1];
+    moveTask(id, nextColumn.id);
+  };
 
   const onDragStart = (e) => {
     e.dataTransfer.setData("taskId", id);
@@ -32,7 +51,10 @@ function Task({ id, name, user, labels, columnId }) {
   };
 
   return (
-    <S.TaskContainer draggable="true" onDragStart={onDragStart}>
+    <S.TaskContainer
+      draggable={!isMobile}
+      onDragStart={!isMobile ? onDragStart : undefined}
+    >
       {isEditing ? (
         <TaskEdit
           editName={editName}
@@ -46,6 +68,20 @@ function Task({ id, name, user, labels, columnId }) {
         <S.TaskContent>
           <TaskLabels labels={labels} labelsList={labelsList} />
           <S.TaskName>{name}</S.TaskName>
+
+          {isMobile && (
+            <S.Arrows>
+              <button onClick={moveLeft} disabled={columnIndex === 0}>
+                ←
+              </button>
+              <button
+                onClick={moveRight}
+                disabled={columnIndex === columns.lenght - 1}
+              >
+                →
+              </button>
+            </S.Arrows>
+          )}
 
           <S.Wrapper>
             <S.TaskUser>{user}</S.TaskUser>
