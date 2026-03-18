@@ -5,7 +5,7 @@ import * as S from "./Form.styles";
 function Form() {
   const [errors, setErrors] = useState({ taskName: "", userName: "" });
   const [taskName, setTaskName] = useState("");
-  const [taskType, setTaskType] = useState(null);
+  const [taskType, setTaskType] = useState("");
   const [userName, setUserName] = useState("");
   const [selectedLabels, setSelectedLabels] = useState([]);
   const { addTask, labelsList } = useContext(BoardContext);
@@ -72,11 +72,11 @@ function Form() {
           setErrors((prev) => ({ ...prev, taskType: null }));
         }}
       >
-        <option value="">Select type</option>
-        <option value="vegetable">Vegetables</option>
-        <option value="herbs">Herbs</option>
-        <option value="flower">Flowers</option>
-        <option value="fruits">Fruits</option>
+        <option value="">🌱 Select type</option>
+        <option value="vegetable">🥕 Vegetables</option>
+        <option value="herbs">🌿 Herbs</option>
+        <option value="flower">🌸 Flowers</option>
+        <option value="fruits">🍓 Fruits</option>
       </S.TypeSelect>
       {errors.taskType && <S.ErrorMessage>{errors.taskType}</S.ErrorMessage>}
 

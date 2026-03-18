@@ -45,7 +45,28 @@ export const TextArea = styled.textarea`
 `;
 
 export const TypeSelect = styled.select`
-  border: 2px solid red;
+  width: 60%;
+  height: 2.5rem;
+  border-radius: 6px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: medium;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: blue;
+  background-color: #fff475;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    4px 0 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  }
+
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 
 export const InputField = styled.input`
