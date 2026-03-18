@@ -42,11 +42,9 @@ const LabelFilters = ({ activeLabels, setActiveLabels, isOpen, setIsOpen }) => {
           }}
         >
           <S.LabelWrapper>
-            <img
-              src={label.icon}
-              alt={label.name}
-              style={{ width: "3rem", height: "3rem" }}
-            />
+            <S.IconWrapper>
+              <img src={label.icon} alt={label.name} />
+            </S.IconWrapper>
             <S.NameSpan>{label.name}</S.NameSpan>{" "}
           </S.LabelWrapper>
         </S.LabelChip>
